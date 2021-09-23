@@ -1,6 +1,6 @@
 package com.crasoftinc.jmatrailers.exceptions;
 
-public class CustomGeneralException extends RuntimeException{
+public class CustomGeneralException extends RuntimeException {
   private final String code;
 
   public CustomGeneralException(String message, String code) {

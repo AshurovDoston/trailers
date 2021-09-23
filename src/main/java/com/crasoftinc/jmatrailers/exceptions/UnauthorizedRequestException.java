@@ -2,15 +2,15 @@ package com.crasoftinc.jmatrailers.exceptions;
 
 public class UnauthorizedRequestException extends CustomGeneralException {
 
-  public UnauthorizedRequestException(String message, String code){
+  public UnauthorizedRequestException(String message, String code) {
     super(message, code);
   }
 
-  public UnauthorizedRequestException(String message){
+  public UnauthorizedRequestException(String message) {
     super(message, "0000");
   }
 
-  public UnauthorizedRequestException(){
+  public UnauthorizedRequestException() {
     super("Unauthorized request", "0000");
   }
 }

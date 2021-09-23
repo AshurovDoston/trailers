@@ -1,96 +1,118 @@
 package com.crasoftinc.jmatrailers.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.NotNull;
-
-
+@AllArgsConstructor
 @Document(collection = "Trailer")
 public class CreateTrailerModel {
 
-    @Id
-    private String id;
+  @Id
+  private String id;
 
-    @NotNull(message = "Company id should be given")
-    private String company_id;
+  @NotNull(message = "Company id should be given")
+  private String companyId;
 
-    //TODO: VIN number for trailer
+  @NotNull(message = "trailer should have VIN number")
+  @Size(max = 17, min = 17)
+  private String vin;
 
-//    @NotNull(message = "Trailer should be assigned")
-//    private boolean is_assigned;
-    //TODO: create another route for this patch
+  //    @NotNull(message = "Trailer should be assigned")
+  private boolean isAssigned;
+  //TODO: create another route for this patch
 
-    //TODO: create new service for location
-    @NotNull(message = "Location should be given")
-    private LocationModel location;
+  //TODO: create new service for location
+  @NotNull(message = "Location should be given")
+  private LocationModel location;
 
-    //@NotNull(message = "Driver id should be given")
-    //private String driver_id;
-    //TODO: driver id only when update trailer info
+  //    @NotNull(message = "Driver id should be given")
+  private String driverId;
+  //TODO: driver id only when update trailer info
 
-    private OwnerTypeModel owner_type;
+  private OwnerTypeModel ownerType;
 
-    private String notes;
+  private String notes;
 
-    public CreateTrailerModel(@JsonProperty("id") String id) {
-        this.id = id;
-    }
+  public CreateTrailerModel(@JsonProperty("id") String id) {
+    this.id = id;
+    this.isAssigned = false;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public CreateTrailerModel(String id, String companyId, boolean isAssigned, String vin,
+                            LocationModel location, OwnerTypeModel ownerType) {
+    this.id = id;
+    this.companyId = companyId;
+    this.isAssigned = isAssigned;
+    this.vin = vin;
+    this.location = location;
+    this.ownerType = ownerType;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public String getCompany_id() {
-        return company_id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public void setCompany_id(String company_id) {
-        this.company_id = company_id;
-    }
+  public String getCompanyId() {
+    return companyId;
+  }
 
-//    public boolean getIs_assigned() {
-//        return is_assigned;
-//    }
-//
-//    public void setIs_assigned(boolean is_assigned) {
-//        this.is_assigned = is_assigned;
-//    }
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
 
-    public LocationModel getLocation() {
-        return location;
-    }
+  public String getVin() {
+    return vin;
+  }
 
-    public void setLocation(LocationModel location) {
-        this.location = location;
-    }
+  public void setVin(String vin) {
+    this.vin = vin;
+  }
 
-//    public String getDriver_id() {
-//        return driver_id;
-//    }
-//
-//    public void setDriver_id(String driver_id) {
-//        this.driver_id = driver_id;
-//    }
+  public boolean isAssigned() {
+    return isAssigned;
+  }
 
-    public OwnerTypeModel getOwner_type() {
-        return owner_type;
-    }
+  public void setAssigned(boolean assigned) {
+    isAssigned = assigned;
+  }
 
-    public void setOwner_type(OwnerTypeModel owner_type) {
-        this.owner_type = owner_type;
-    }
+  public LocationModel getLocation() {
+    return location;
+  }
 
-    public String getNotes() {
-        return notes;
-    }
+  public void setLocation(LocationModel location) {
+    this.location = location;
+  }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+  public String getDriverId() {
+    return driverId;
+  }
+
+  public void setDriverId(String driverId) {
+    this.driverId = driverId;
+  }
+
+  public OwnerTypeModel getOwnerType() {
+    return ownerType;
+  }
+
+  public void setOwnerType(OwnerTypeModel ownerType) {
+    this.ownerType = ownerType;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
 }

@@ -7,68 +7,100 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Document(collection = "Trailer")
 public class TrailersEntity {
-    private String id;
+  private String id;
 
-    private String company_id;
+  private String companyId;
 
-//    private boolean is_assigned;
+  private String vin;
 
-    private LocationModel location;
+  private boolean isAssigned;
 
-    private OwnerTypeModel owner_type;
+  private LocationModel location;
 
-    private String notes;
+  private String driverId;
 
-    public TrailersEntity(String id, String company_id, LocationModel location, OwnerTypeModel owner_type) {
-        this.id = id;
-        this.company_id = company_id;
-        this.location = location;
-        this.owner_type = owner_type;
-    }
+  private OwnerTypeModel ownerType;
 
-    public String getId() {
-        return id;
-    }
+  private String notes;
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public TrailersEntity(String id, String companyId, String vin, LocationModel location,
+                        String driverId, OwnerTypeModel ownerType) {
+    this.id = id;
+    this.companyId = companyId;
+    this.vin = vin;
+    this.location = location;
+    this.driverId = driverId;
+    this.ownerType = ownerType;
+  }
 
-    public String getCompany_id() {
-        return company_id;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setCompany_id(String company_id) {
-        this.company_id = company_id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public LocationModel getLocation() {
-        return location;
-    }
+  public String getCompanyId() {
+    return companyId;
+  }
 
-    public void setLocation(LocationModel location) {
-        this.location = location;
-    }
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
 
-    public OwnerTypeModel getOwner_type() {
-        return owner_type;
-    }
+  public String getVin() {
+    return vin;
+  }
 
-    public void setOwner_type(OwnerTypeModel owner_type) {
-        this.owner_type = owner_type;
-    }
+  public void setVin(String vin) {
+    this.vin = vin;
+  }
 
-    public String getNotes() {
-        return notes;
-    }
+  public boolean isAssigned() {
+    return isAssigned;
+  }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+  public void setAssigned(boolean assigned) {
+    isAssigned = assigned;
+  }
+
+  public LocationModel getLocation() {
+    return location;
+  }
+
+  public void setLocation(LocationModel location) {
+    this.location = location;
+  }
+
+  public String getDriverId() {
+    return driverId;
+  }
+
+  public void setDriverId(String driverId) {
+    this.driverId = driverId;
+  }
+
+  public OwnerTypeModel getOwnerType() {
+    return ownerType;
+  }
+
+  public void setOwnerType(OwnerTypeModel ownerType) {
+    this.ownerType = ownerType;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
 }

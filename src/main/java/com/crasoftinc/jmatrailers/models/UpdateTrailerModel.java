@@ -2,76 +2,84 @@ package com.crasoftinc.jmatrailers.models;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import javax.validation.constraints.Size;
 
 public class UpdateTrailerModel {
 
-    @NotNull(message = "Company id should be given")
-    private String company_id;
+  @NotNull(message = "Company id should be given")
+  private String companyId;
 
-    @NotNull(message = "Trailer should be assigned")
-    private boolean is_assigned;
+  @NotNull(message = "trailer should have VIN number")
+  @Size(max = 17, min = 17)
+  private String vin;
 
-    @NotNull(message = "Location should be given")
-    private LocationModel location;
+  @NotNull(message = "Trailer should be assigned")
+  private boolean isAssigned;
 
-    @NotNull(message = "Driver id should be given")
-    private String driver_id;
+  @NotNull(message = "Location should be given")
+  private LocationModel location;
 
-    @NotNull(message = "Owner type should be given")
-    private OwnerTypeModel owner_type;
+  @NotNull(message = "Driver id should be given")
+  private String driverId;
 
-    @Null
-    private String notes;
+  @NotNull(message = "Owner type should be given")
+  private OwnerTypeModel ownerType;
 
-//    public UpdateTrailerModel(@JsonProperty("id") String id) {
-//        this.id = id;
-//    }
+  private String notes;
 
-    public String getCompany_id() {
-        return company_id;
-    }
+  public String getCompanyId() {
+    return companyId;
+  }
 
-    public void setCompany_id(String company_id) {
-        this.company_id = company_id;
-    }
+  public void setCompanyId(String companyId) {
+    this.companyId = companyId;
+  }
 
-    public boolean getIs_assigned() {
-        return is_assigned;
-    }
+  public String getVin() {
+    return vin;
+  }
 
-    public void setIs_assigned(boolean is_assigned) {
-        this.is_assigned = is_assigned;
-    }
+  public void setVin(String vin) {
+    this.vin = vin;
+  }
 
-    public LocationModel getLocation() {
-        return location;
-    }
+  public boolean isAssigned() {
+    return isAssigned;
+  }
 
-    public void setLocation(LocationModel location) {
-        this.location = location;
-    }
+  public void setAssigned(boolean assigned) {
+    isAssigned = assigned;
+  }
 
-    public String getDriver_id() {
-        return driver_id;
-    }
+  public LocationModel getLocation() {
+    return location;
+  }
 
-    public void setDriver_id(String driver_id) {
-        this.driver_id = driver_id;
-    }
+  public void setLocation(LocationModel location) {
+    this.location = location;
+  }
 
-    public OwnerTypeModel getOwner_type() {
-        return owner_type;
-    }
+  public String getDriverId() {
+    return driverId;
+  }
 
-    public void setOwner_type(OwnerTypeModel owner_type) {
-        this.owner_type = owner_type;
-    }
+  public void setDriverId(String driverId) {
+    this.driverId = driverId;
+  }
 
-    public String getNotes() {
-        return notes;
-    }
+  public OwnerTypeModel getOwnerType() {
+    return ownerType;
+  }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+  public void setOwnerType(OwnerTypeModel ownerType) {
+    this.ownerType = ownerType;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
+
+  public void setNotes(String notes) {
+    this.notes = notes;
+  }
 }
