@@ -4,6 +4,7 @@ import com.crasoftinc.jmatrailers.data.TrailersEntity;
 import com.crasoftinc.jmatrailers.exceptions.CustomGeneralException;
 import com.crasoftinc.jmatrailers.exceptions.NotFoundRequestException;
 import com.crasoftinc.jmatrailers.models.CreateTrailerModel;
+import com.crasoftinc.jmatrailers.models.UpdateDriverIsAssignedModel;
 import com.crasoftinc.jmatrailers.models.UpdateTrailerModel;
 import com.crasoftinc.jmatrailers.repository.TrailersRepository;
 import org.modelmapper.ModelMapper;
@@ -64,6 +65,20 @@ public class TrailersServiceImpl {
       throw new NotFoundRequestException("There is not trailer with this id:" + id, "404");
     }
 
+  }
+
+  public ResponseEntity<TrailersEntity> updateDriverIsAssigned(String id, UpdateDriverIsAssignedModel updateDriverIsAssignedModel) throws CustomGeneralException{
+    var res = trailersRepository.findById(id);
+    if (res.isPresent()){
+      TrailersEntity trailersEntity = res.get();
+      ModelMapper modelMapper = new ModelMapper();
+      modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+      trailersEntity.setAssigned(updateDriverIsAssignedModel.isAssigned());
+      TrailersEntity entity = trailersRepository.save(trailersEntity);
+      return ResponseEntity.status(HttpStatus.OK).body(entity);
+    } else {
+      throw new NotFoundRequestException("There is not trailer with this id:" + id, "404");
+    }
   }
 
   public void deleteTrailer(String id) throws CustomGeneralException {

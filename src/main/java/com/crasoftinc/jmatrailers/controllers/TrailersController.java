@@ -4,6 +4,7 @@ import com.crasoftinc.jmatrailers.data.TrailersEntity;
 import com.crasoftinc.jmatrailers.exceptions.CustomGeneralException;
 import com.crasoftinc.jmatrailers.exceptions.NotFoundRequestException;
 import com.crasoftinc.jmatrailers.models.CreateTrailerModel;
+import com.crasoftinc.jmatrailers.models.UpdateDriverIsAssignedModel;
 import com.crasoftinc.jmatrailers.models.UpdateTrailerModel;
 import com.crasoftinc.jmatrailers.service.TrailersServiceImpl;
 import javax.validation.Valid;
@@ -12,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -76,6 +78,13 @@ public class TrailersController {
                                                            UpdateTrailerModel updateTrailerModel)
       throws CustomGeneralException {
     return trailersServiceImpl.updateTrailer(id, updateTrailerModel);
+  }
+
+  @PatchMapping(path = "/{id}")
+  public ResponseEntity<TrailersEntity> updateDriverIsAssigned(@PathVariable("id") String id,
+                                                               @Valid @RequestBody
+                                                               UpdateDriverIsAssignedModel updateDriverIsAssignedModel) throws CustomGeneralException{
+    return trailersServiceImpl.updateDriverIsAssigned(id, updateDriverIsAssignedModel);
   }
 
   @DeleteMapping(path = "/{id}")

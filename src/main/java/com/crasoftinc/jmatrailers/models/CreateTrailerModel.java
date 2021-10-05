@@ -29,9 +29,7 @@ public class CreateTrailerModel {
   @NotNull(message = "Location should be given")
   private LocationModel location;
 
-  //    @NotNull(message = "Driver id should be given")
   private String driverId;
-  //TODO: driver id only when update trailer info
 
   private OwnerTypeModel ownerType;
 
