@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @AllArgsConstructor
-@Document(collection = "Trailer")
+@Document(collection = "trailers")
 public class CreateTrailerModel {
 
   @Id
