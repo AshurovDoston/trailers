@@ -78,7 +78,7 @@ pipeline {
                     publishHTML([allowMissing: false, 
                     alwaysLinkToLastBuild: true, 
                     keepAll: true, 
-                    reportDir: 'HTMLreport', 
+                    reportDir: '/var/lib/jenkins/workspace/jma-trailers', 
                     reportFiles: 'index.html', 
                     reportName: 'HTML Report', 
                     reportTitles: ''])
