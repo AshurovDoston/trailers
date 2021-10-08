@@ -75,10 +75,16 @@ pipeline {
         stage('HTML report') {
             steps {
                 script {
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'HTML report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+                    publishHTML([allowMissing: false, 
+                    alwaysLinkToLastBuild: true, 
+                    keepAll: true, 
+                    reportDir: 'HTML report', 
+                    reportFiles: 'index.html', 
+                    reportName: 'HTML Report', 
+                    reportTitles: ''])
                     }
                 }
             }
         }
-    }
+    
 }
