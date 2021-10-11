@@ -4,6 +4,7 @@ pipeline {
         maven 'maven-3.6'
         jdk 'java-11'
     }
+    stages {
         stage('build jar') {
             steps {
                 script {
@@ -34,19 +35,7 @@ pipeline {
             }
         }
 
-        stage('HTML report') {
-            steps {
-                script {
-                    publishHTML([allowMissing: false, 
-                    alwaysLinkToLastBuild: true, 
-                    keepAll: true, 
-                    reportDir: '/var/lib/jenkins/workspace/jma-trailers', 
-                    reportFiles: 'index.html', 
-                    reportName: 'HTML Report', 
-                    reportTitles: ''])
-                    }
-                }
-            }
+    }    
     
     
 }
