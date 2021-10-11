@@ -4,16 +4,6 @@ pipeline {
         maven 'maven-3.6'
         jdk 'java-11'
     }
-    stages {
-        stage('increment version') {
-            steps{
-                script{
-                    echo 'incrementing app verion...'
-
-                    
-                }
-            }
-        }
         stage('build jar') {
             steps {
                 script {
@@ -25,26 +15,21 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                    echo "Building the docker image..."
-                    
-                    }
+                    echo "Building the docker image... "
                 }
             }
         }
         stage('deploy') {
             steps {
                 script {
-                    echo "Deploying the application..."
-                    
-                    
+                    echo "Deploying the application... "
                 }
             }
         }
         stage('commit version update') {
             steps {
                 script {
-                    echo "Commit"
-                    
+                    echo "Commit Version"
                 }
             }
         }
@@ -59,9 +44,9 @@ pipeline {
                     reportFiles: 'index.html', 
                     reportName: 'HTML Report', 
                     reportTitles: ''])
-                    
+                    }
                 }
             }
-        }
+    
     
 }
