@@ -112,7 +112,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
-                    <outputDirectory>${basedir}/target/newsite</outputDirectory>
+                    <outputDirectory>$/var/lib/jenkins/workspace/test-jma-trailers/target/test-trailers</outputDirectory>
                 </configuration>
             </plugin>
         </plugins>
