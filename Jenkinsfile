@@ -44,7 +44,7 @@ pipeline {
             steps {
                 script {
                     echo "Commit"
-                    }
+                    
                 }
             }
         }
