@@ -14,6 +14,14 @@ pipeline {
             }
         }
         
+        stage('test') {
+            steps {
+                script {
+                    echo "Testing the application..."
+                }
+            }
+        }
+
         stage('HTML report') {
             steps {
                 script {
